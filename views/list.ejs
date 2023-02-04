@@ -7,11 +7,23 @@
     <title>Current Day</title>
 </head>
 <body>
-    <% if(kindOfDay==="thursday"){ %>
-    <h1 style="color: purple"> <%= kindOfDay %> To Do List</h1>
-    <% } %>
-    <% if(kindOfDay==="saturday"){ %>
-    <h1 style="color:yellow"> <%= kindOfDay %> To Do List</h1>
-    <% } %>
+   <h1> <%=kindOfDay%> </h1>
+   <ul>
+    <!-- <li>get food</li> -->
+    <!-- <li>cook food</li> -->
+    <!-- <li>eat food</li> -->
+    <!-- <li> <%=newItems[i]%> </li> -->
+    
+    <% for(var i=0;i<newItems.length;i++){ %>
+        <li><%= newItems[i] %></li>
+        <%}%>
+
+
+    <form action="/" method="post">
+        <input type="text" name="task1">
+        <button type="submit">Add Task</button>
+    </form>
+   </ul>
+
 </body>
 </html>
