@@ -3,10 +3,10 @@ const bodyParser= require("body-parser");
 
 const app= express();
 
+var items=[];
 app.use(bodyParser.urlencoded({extended:true}));
 app.set('view engine', 'ejs');
 
-var items=["eat","work","sleep"];
 app.get("/",function(req,res){
 
     const today= new Date();
@@ -19,18 +19,15 @@ app.get("/",function(req,res){
 
     var day= today.toLocaleDateString("en-US",options);
 
-
-   res.render("list", {kindOfDay: day, newItems:items});
+    res.render("list", {kindOfDay:day,newItems:items});
     
 });
-
 app.post("/",function(request,response){
-    console.log(request.body.task1);
-    var item=request.body.task1;
-    items.push(item);
-    // response.render("list", {newItem: item});
+    
+    items.push(request.body.item);
     response.redirect("/");
 });
+
 
 app.listen(3000,function(){
     console.log("server started at port 3000");

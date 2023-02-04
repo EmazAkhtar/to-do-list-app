@@ -9,21 +9,18 @@
 <body>
    <h1> <%=kindOfDay%> </h1>
    <ul>
-    <!-- <li>get food</li> -->
-    <!-- <li>cook food</li> -->
-    <!-- <li>eat food</li> -->
-    <!-- <li> <%=newItems[i]%> </li> -->
-    
     <% for(var i=0;i<newItems.length;i++){ %>
-        <li><%= newItems[i] %></li>
-        <%}%>
+        <li> <%=newItems[i]%> </li>
+    <% } %>
+   </ul>
+  
+    
 
 
     <form action="/" method="post">
-        <input type="text" name="task1">
-        <button type="submit">Add Task</button>
-    </form>
-   </ul>
+    <input type="text" name="item">
+    <button type="submit">Add</button>
+   </form>
 
 </body>
 </html>
